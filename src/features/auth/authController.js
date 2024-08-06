@@ -6,9 +6,9 @@ export default class AuthController {
   // register action
   async register(req, res) {
     try {
-      const { userName, password, email, address, phone } = req.body;
+      const { userName, password, email, address, phone, answer } = req.body;
       // validate
-      if (!userName || !password || !email || !phone || !address) {
+      if (!userName || !password || !email || !phone || !address || !answer) {
         return res.status(500).send({
           success: false,
           message: "please provide all fields",
@@ -35,6 +35,7 @@ export default class AuthController {
         email,
         phone,
         address,
+        answer,
       });
       res.status(201).send({
         success: true,

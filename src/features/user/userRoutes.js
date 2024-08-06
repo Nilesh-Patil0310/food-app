@@ -8,7 +8,19 @@ const userRouter = express.Router();
 // user controller instance
 const userController = new UserController();
 
-// Routes GET | POST | PUT | DELETE
+// Ruser get routes
 userRouter.get("/getUser", jwtAuth, userController.getUser);
+
+// user put routes
+userRouter.put('/update-user',jwtAuth, userController.updateUser);
+
+// password update
+userRouter.post('/update-password',jwtAuth,userController.updatePassword);
+
+// reset password
+userRouter.post('/reset-password',jwtAuth, userController.resetPassword);
+
+// delete user
+userRouter.delete('/delete-user/:id',jwtAuth, userController.deleteUser)
 
 export default userRouter;
