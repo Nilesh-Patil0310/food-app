@@ -12,6 +12,7 @@ import resturantRouter from "./src/features/resturant/resturantRoute.js";
 import categoryRouter from "./src/features/category/categoryRoute.js";
 import foodRouter from "./src/features/food/foodRoute.js";
 
+
 // dotenv configuartion
 dotenv.config();
 
@@ -21,9 +22,16 @@ connectDB();
 const app = express();
 
 // middlewares
-app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+
+// cors configuration
+
+app.use(cors({
+  origin: '*', // Allow all origins or specify the allowed domains
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
+}));
 
 //  routes
 // swagger api-doc
