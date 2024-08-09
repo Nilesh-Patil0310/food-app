@@ -80,7 +80,7 @@ app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/food", foodRouter);
 
 app.get("/", (req, res) => {
-  return res.status(200).send("<h1>Wellcome to food app</h1>");
+  return res.status(200).send("<h1>WellCome to Food-App Please Hit the /api-docs for the API Documetation of this app</h1>");
 });
 
 // PORT
