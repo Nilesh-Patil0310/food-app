@@ -12,7 +12,6 @@ import resturantRouter from "./src/features/resturant/resturantRoute.js";
 import categoryRouter from "./src/features/category/categoryRoute.js";
 import foodRouter from "./src/features/food/foodRoute.js";
 
-
 // dotenv configuartion
 dotenv.config();
 
@@ -27,11 +26,13 @@ app.use(morgan("dev"));
 
 // cors configuration
 
-app.use(cors({
-  origin: '*', // Allow all origins or specify the allowed domains
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
-}));
+app.use(
+  cors({
+    origin: "*", // Allow all origins or specify the allowed domains
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+  })
+);
 
 //  routes
 // swagger api-doc
@@ -44,7 +45,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://127.0.0.1:3200",
+        url: "http://localhost:3200",
       },
     ],
     components: {
@@ -67,7 +68,7 @@ const options = {
     "./src/features/user/userRoutes.js",
     "./src/features/resturant/resturantRoute.js",
     "./src/features/food/foodRoute.js",
-    "./src/features/category/categoryRoute.js"
+    "./src/features/category/categoryRoute.js",
   ],
 };
 // swagger specification variable
@@ -88,7 +89,11 @@ app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/food", foodRouter);
 
 app.get("/", (req, res) => {
-  return res.status(200).send("<h1>WellCome to Food-App Please Hit the /api-docs for the API Documetation of this app</h1>");
+  return res
+    .status(200)
+    .send(
+      "<h1>WellCome to Food-App Please Hit the /api-docs for the API Documetation of this app</h1>"
+    );
 });
 
 // PORT
