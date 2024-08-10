@@ -45,7 +45,8 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3200",
+        // url: "http://localhost:3200",
+        url: "https://food-app-u5s7.onrender.com"
       },
     ],
     components: {
@@ -75,7 +76,7 @@ const options = {
 const swaggerSpecification = swagerJSdoc(options);
 
 // swagger routes from here
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecification));
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpecification));
 
 // 1 user route from here
 app.use("/api/v1/user", userRouter);
