@@ -98,7 +98,7 @@ app.get("/", (req, res) => {
 });
 
 // PORT
-const PORT = process.env.PORT || 3200;
+const PORT = process.env.PORT || 10000;
 // server listen
 app.listen(PORT, () => {
   console.log(`Server Running on ${PORT}`.white.bgMagenta);
